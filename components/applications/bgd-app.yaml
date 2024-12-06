@@ -13,4 +13,8 @@ spec:
     repoURL: https://github.com/kkphil83/openshift-gitops-examples
     targetRevision: main
   syncPolicy:
-    automated: {}
+    automated:
+      prune: true
+      selfHeal: false
+    syncOptions:
+    - CreateNamespace=true
