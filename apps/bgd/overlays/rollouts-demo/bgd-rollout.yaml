@@ -2,7 +2,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Rollout
 metadata:
-  name: rollout-extension
+  name: rollouts-demo
 spec:
   replicas: 5
   revisionHistoryLimit: 3
@@ -20,4 +20,4 @@ spec:
   workloadRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: rollout-extension
+    name: rollouts-demo

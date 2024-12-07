@@ -1,11 +1,11 @@
 kind: Route
 apiVersion: route.openshift.io/v1
 metadata:
-  name: rollout-extension
+  name: rollouts-demo
 spec:
   to:
     kind: Service
-    name: rollout-extension
+    name: rollouts-demo
     weight: 100
   port:
     targetPort: http
