@@ -1,0 +1,28 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: rollouts-demo-app
+  namespace: retail-%userid%
+spec:
+  destination:
+    namespace: argocd-%userid%
+    server: 'https://kubernetes.default.svc'
+  project: default
+  source:
+    path: apps/bgd/overlays/rollouts-demo
+    repoURL: https://github.com/kkphil83/openshift-gitops-examples
+    targetRevision: main
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: false
+    syncOptions:
+    - CreateNamespace=true
+
+
+
+
+oc patch deploy/bgd -n argocd-user20 --type='json' -p='[{"op": "replace", "path": "/spec/template/spec/containers/0/env/0/value", "value": "green"}]'
+
+
+oc patch application/bgd-app -n retail-user20 --type='json' -p='[{"op": "replace", "path": "/spec/syncPolicy/automated/selfHeal", "value": true}]'

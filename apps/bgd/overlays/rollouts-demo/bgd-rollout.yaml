@@ -2,14 +2,10 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Rollout
 metadata:
-  name: rollouts-bgd
+  name: rollouts-demo
 spec:
-  replicas: 3
-  revisionHistoryLimit: 1
-  workloadRef:
-    apiVersion: apps/v1
-    kind: Deployment
-    name: bgd
+  replicas: 5
+  revisionHistoryLimit: 3
   strategy:
     canary: 
       steps: 
@@ -21,4 +17,7 @@ spec:
       - pause: {duration: 20}
       - setWeight: 80
       - pause: {duration: 10}
-  revisionHistoryLimit: 2
+  workloadRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: rollouts-demo
