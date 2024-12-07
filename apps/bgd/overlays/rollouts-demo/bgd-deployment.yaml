@@ -6,7 +6,7 @@ metadata:
     app: rollouts-demo
   name: rollouts-demo
 spec:
-  replicas: 5
+  replicas: 0
   selector:
     matchLabels:
       app: rollouts-demo
