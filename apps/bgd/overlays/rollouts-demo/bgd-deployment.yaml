@@ -3,22 +3,22 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: rollout-extension
-  name: rollout-extension
+    app: rollout-demo
+  name: rollout-demo
 spec:
   replicas: 0
   selector:
     matchLabels:
-      app: rollout-extension
+      app: rollout-demo
   strategy: {}
   template:
     metadata:
       creationTimestamp: null
       labels:
-        app: rollout-extension
+        app: rollout-demo
     spec:
       containers:
-      - name: rollout-extension
+      - name: rollout-demo
         image: argoproj/rollouts-demo:blue
         ports:
         - name: http

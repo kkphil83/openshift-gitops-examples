@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: rollouts-demo-app
+  name: rollout-extension-app
   namespace: retail-%userid%
 spec:
   destination:

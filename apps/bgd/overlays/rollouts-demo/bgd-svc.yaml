@@ -3,13 +3,13 @@ apiVersion: v1
 kind: Service
 metadata:
   labels:
-    app: rollouts-extension
-  name: rollouts-extension
+    app: rollouts-demo
+  name: rollouts-demo
 spec:
   ports:
   - port: 8080
     protocol: TCP
     targetPort: 8080
   selector:
-    app: rollouts-extension
+    app: rollouts-demo
 ---
