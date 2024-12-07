@@ -13,5 +13,5 @@ spec:
   strategy:
     blueGreen:
       activeService: bgd
-      previewService: bgc-preview
+      previewService: bgd-preview
       autoPromotionEnabled: false
