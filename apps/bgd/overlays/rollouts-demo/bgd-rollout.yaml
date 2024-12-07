@@ -20,4 +20,4 @@ spec:
   workloadRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: rollout-demo
+    name: rollout-extension
