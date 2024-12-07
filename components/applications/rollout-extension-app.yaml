@@ -2,10 +2,10 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: rollout-extension-app
-  namespace: retail-%userid%
+  namespace: retail-user30
 spec:
   destination:
-    namespace: argocd-%userid%
+    namespace: argocd-user30
     server: 'https://kubernetes.default.svc'
   project: default
   source:
