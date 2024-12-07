@@ -13,3 +13,17 @@ spec:
   selector:
     app: bgd
 ---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: bgd-preview
+  name: bgd
+spec:
+  ports:
+  - port: 8080
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    app: bgd
+---
