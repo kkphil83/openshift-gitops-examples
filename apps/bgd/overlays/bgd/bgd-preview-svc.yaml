@@ -3,7 +3,7 @@ apiVersion: v1
 kind: Service
 metadata:
   labels:
-    app: bgd
+    app: bgd-preview
   name: bgd
 spec:
   ports:
