@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: rollouts-extension
+  name: rollout-extension
 spec:
   ports: 
   - port: 80
@@ -10,5 +10,5 @@ spec:
     protocol: TCP
     name: http
   selector: 
-    app: rollouts-extension
+    app: rollout-extension
 ---
