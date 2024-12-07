@@ -2,8 +2,8 @@ apiVersion: route.openshift.io/v1
 kind: Route
 metadata:
   labels:
-    app: rollouts-demo
-  name: rollouts-demo
+    app: rollouts-extension
+  name: rollouts-extension
 spec:
   port:
     targetPort: 8080
@@ -12,5 +12,5 @@ spec:
     termination: edge    
   to:
     kind: Service
-    name: rollouts-demo
+    name: rollouts-extension
     weight: 100
