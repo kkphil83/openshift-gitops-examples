@@ -18,11 +18,3 @@ spec:
       selfHeal: false
     syncOptions:
     - CreateNamespace=true
-
-
-
-
-oc patch deploy/bgd -n argocd-user20 --type='json' -p='[{"op": "replace", "path": "/spec/template/spec/containers/0/env/0/value", "value": "green"}]'
-
-
-oc patch application/bgd-app -n retail-user20 --type='json' -p='[{"op": "replace", "path": "/spec/syncPolicy/automated/selfHeal", "value": true}]'
