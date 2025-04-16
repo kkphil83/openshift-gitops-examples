@@ -1,0 +1,26 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
+metadata:
+  name: rollouts-route-demo
+spec:
+  replicas: 5
+  revisionHistoryLimit: 3
+  strategy:
+    canary:
+      canaryService: argo-rollouts-canary-service 
+      stableService: argo-rollouts-stable-service 
+      trafficRouting:
+        plugins:
+          argoproj-labs/openshift:
+            routes:
+              - rollouts-demo-route   
+      steps: 
+      - setWeight: 30
+      - pause: {}
+      - setWeight: 60
+      - pause: {}
+  workloadRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: rollouts-demo
