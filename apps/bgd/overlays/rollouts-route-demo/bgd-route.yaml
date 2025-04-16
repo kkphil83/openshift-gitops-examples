@@ -16,3 +16,19 @@ spec:
     - kind: Service
       name: argo-rollouts-canary-service 
       weight: 0 
+---
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: rollouts-route-canary
+spec:
+  to:
+    kind: Service
+    name: argo-rollouts-canary-service
+    weight: 100
+  port:
+    targetPort: http
+  tls:
+    termination: edge
+    insecureEdgeTerminationPolicy: Redirect
+  wildcardPolicy: None
