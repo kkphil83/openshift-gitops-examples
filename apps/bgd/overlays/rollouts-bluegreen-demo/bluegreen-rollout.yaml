@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
+metadata:
+  name: bluegreen-demo
+  labels:
+    app: bluegreen-demo
+spec:
+  replicas: 3
+  revisionHistoryLimit: 1
+  strategy:
+    blueGreen:
+      autoPromotionEnabled: false
+      activeService: bluegreen-demo
+      previewService: bluegreen-demo-preview
+  workloadRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: bluegreen-demo
